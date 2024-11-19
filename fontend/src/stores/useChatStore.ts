@@ -1,7 +1,7 @@
 import { axiosInstance } from "@/lib/axios";
 import { Message, User } from "@/types";
 import { create } from "zustand";
-// import { io } from "socket.io-client";
+import { io } from "socket.io-client";
 
 interface ChatStore {
 	users: User[];
@@ -95,13 +95,13 @@ export const useChatStore = create<ChatStore>((set, get) => ({
 				}));
 			});
 
-			// socket.on("activity_updated", ({ userId, activity }) => {
-			// 	set((state) => {
-			// 		const newActivities = new Map(state.userActivities);
-			// 		newActivities.set(userId, activity);
-			// 		return { userActivities: newActivities };
-			// 	});
-			// });
+			socket.on("activity_updated", ({ userId, activity }) => {
+				set((state) => {
+					const newActivities = new Map(state.userActivities);
+					newActivities.set(userId, activity);
+					return { userActivities: newActivities };
+				});
+			});
 
 			set({ isConnected: true });
 		}
