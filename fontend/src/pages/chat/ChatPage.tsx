@@ -3,10 +3,10 @@ import { useChatStore } from "@/stores/useChatStore";
 import { useUser } from "@clerk/clerk-react";
 import { useEffect } from "react";
 import UsersList from "./components/UsersList";
-// import ChatHeader from "./components/ChatHeader";
+import ChatHeader from "./components/ChatHeader";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
-// import MessageInput from "./components/MessageInput";
+import MessageInput from "./components/MessageInput";
 
 
 const formatTime = (date: string) => {
@@ -42,7 +42,7 @@ const ChatPage = () => {
 				<div className='flex flex-col h-full'>
 					{selectedUser ? (
 						<>
-							{/* <ChatHeader /> */}
+							<ChatHeader />
 
 							{/* Messages */}
 							<ScrollArea className='h-[calc(100vh-340px)]'>
@@ -79,7 +79,7 @@ const ChatPage = () => {
 								</div>
 							</ScrollArea>
 
-							{/* <MessageInput /> */}
+							<MessageInput />
 						</>
 					) : (
 						<NoConversationPlaceholder />
