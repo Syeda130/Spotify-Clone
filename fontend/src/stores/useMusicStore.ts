@@ -1,6 +1,6 @@
 import { axiosInstance } from "@/lib/axios";
 import { Album, Song, Stats } from "@/types";
-// import toast from "react-hot-toast";
+import toast from "react-hot-toast";
 import { create } from "zustand";
 
 interface MusicStore {
@@ -43,37 +43,37 @@ export const useMusicStore = create<MusicStore>((set) => ({
 
 	deleteSong: async (id) => {
 		set({ isLoading: true, error: null });
-		// try {
-		// 	await axiosInstance.delete(`/admin/songs/${id}`);
+		try {
+			await axiosInstance.delete(`/admin/songs/${id}`);
 
-		// 	set((state) => ({
-		// 		songs: state.songs.filter((song) => song._id !== id),
-		// 	}));
-		// 	toast.success("Song deleted successfully");
-		// } catch (error: any) {
-		// 	console.log("Error in deleteSong", error);
-		// 	toast.error("Error deleting song");
-		// } finally {
-		// 	set({ isLoading: false });
-		// }
+			set((state) => ({
+				songs: state.songs.filter((song) => song._id !== id),
+			}));
+			toast.success("Song deleted successfully");
+		} catch (error: any) {
+			console.log("Error in deleteSong", error);
+			toast.error("Error deleting song");
+		} finally {
+			set({ isLoading: false });
+		}
 	},
 
 	deleteAlbum: async (id) => {
 		set({ isLoading: true, error: null });
-		// try {
-		// 	await axiosInstance.delete(`/admin/albums/${id}`);
-		// 	set((state) => ({
-		// 		albums: state.albums.filter((album) => album._id !== id),
-		// 		songs: state.songs.map((song) =>
-		// 			song.albumId === state.albums.find((a) => a._id === id)?.title ? { ...song, album: null } : song
-		// 		),
-		// 	}));
-		// 	toast.success("Album deleted successfully");
-		// } catch (error: any) {
-		// 	toast.error("Failed to delete album: " + error.message);
-		// } finally {
-		// 	set({ isLoading: false });
-		// }
+		try {
+			await axiosInstance.delete(`/admin/albums/${id}`);
+			set((state) => ({
+				albums: state.albums.filter((album) => album._id !== id),
+				songs: state.songs.map((song) =>
+					song.albumId === state.albums.find((a) => a._id === id)?.title ? { ...song, album: null } : song
+				),
+			}));
+			toast.success("Album deleted successfully");
+		} catch (error: any) {
+			toast.error("Failed to delete album: " + error.message);
+		} finally {
+			set({ isLoading: false });
+		}
 	},
 
 	fetchSongs: async () => {
