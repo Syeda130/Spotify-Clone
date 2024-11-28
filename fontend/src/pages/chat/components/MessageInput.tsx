@@ -17,13 +17,13 @@ const MessageInput = () => {
 	};
 
 	return (
-		<div className='p-4 mt-auto border-t border-zinc-800'>
+		<div className='p-4 mt-auto border-t border-slate-800'>
 			<div className='flex gap-2'>
 				<Input
 					placeholder='Type a message'
 					value={newMessage}
 					onChange={(e) => setNewMessage(e.target.value)}
-					className='bg-zinc-800 border-none'
+					className='bg-slate-800 border-none'
 					onKeyDown={(e) => e.key === "Enter" && handleSend()}
 				/>
 

@@ -50,7 +50,7 @@ export const PlaybackControls = () => {
 	};
 
 	return (
-		<footer className='h-20 sm:h-24 bg-zinc-900 border-t border-zinc-800 px-4'>
+		<footer className='h-20 sm:h-24 bg-slate-900 border-t border-slate-800 px-4'>
 			<div className='flex justify-between items-center h-full max-w-[1800px] mx-auto'>
 				{/* currently playing song */}
 				<div className='hidden sm:flex items-center gap-4 min-w-[180px] w-[30%]'>
@@ -96,7 +96,7 @@ export const PlaybackControls = () => {
 
 						<Button
 							size='icon'
-							className='bg-white hover:bg-white/80 text-black rounded-full h-8 w-8'
+							className='bg-yellow-500 hover:bg-yellow-500/80 text-black rounded-full h-8 w-8'
 							onClick={togglePlay}
 							disabled={!currentSong}
 						>

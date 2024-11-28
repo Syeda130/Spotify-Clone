@@ -16,7 +16,7 @@ const SectionGrid = ({ songs, title, isLoading }: SectionGridProps) => {
 			<div className='flex items-center justify-between mb-4'>
 				<h2 className='text-xl sm:text-2xl font-bold'>{title}</h2>
 				<Button variant='link' className='text-sm text-zinc-400 hover:text-white'>
-					Show all
+					{/* Show all */}
 				</Button>
 			</div>
 
@@ -24,7 +24,7 @@ const SectionGrid = ({ songs, title, isLoading }: SectionGridProps) => {
 				{songs.map((song) => (
 					<div
 						key={song._id}
-						className='bg-zinc-800/40 p-4 rounded-md hover:bg-zinc-700/40 transition-all group cursor-pointer'
+						className='bg-slate-800/40 p-4 rounded-md hover:bg-slate-700/40 transition-all group cursor-pointer'
 					>
 						<div className='relative mb-4'>
 							<div className='aspect-square rounded-md shadow-lg overflow-hidden'>
